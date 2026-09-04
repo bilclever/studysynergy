@@ -114,14 +114,16 @@ const SessionSetup = () => {
         onDragLeave={handleDrag}
         onDragOver={handleDrag}
         onDrop={handleDrop}
-        className={`border-2 border-dashed rounded-2xl p-12 text-center transition-all mb-6 cursor-pointer ${
+        className={`border-2 border-dashed rounded-xl p-12 text-center transition-all mb-6 cursor-pointer ${
           dragActive
-            ? 'border-ink bg-gray-50'
-            : 'border-stone hover:border-gray-400 hover:bg-gray-50/50'
+            ? 'border-accent bg-violet-50'
+            : 'border-stone hover:border-muted hover:bg-faint'
         }`}
       >
-        <div className="h-14 w-14 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <Upload className="h-7 w-7 text-gray-600" />
+        <div className={`h-12 w-12 rounded-xl flex items-center justify-center mx-auto mb-4 transition-colors ${
+          dragActive ? 'bg-violet-100' : 'bg-faint border border-stone'
+        }`}>
+          <Upload className={`h-6 w-6 transition-colors ${dragActive ? 'text-accent' : 'text-muted'}`} />
         </div>
         <p className="text-sm font-semibold text-ink mb-1">Déposez vos fichiers ici</p>
         <p className="text-xs text-muted mb-5">PDF, Word, images, audio, vidéo · Max 50 Mo</p>
@@ -135,9 +137,6 @@ const SessionSetup = () => {
             onChange={e => addFiles(e.target.files)}
           />
         </label>
-        <p className="text-xs text-muted mt-3">
-          {SUPPORTED_EXTENSIONS.join(' · ')}
-        </p>
       </div>
 
       {/* File list */}

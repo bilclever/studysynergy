@@ -82,9 +82,9 @@ const Dashboard = () => {
       {sessions.length > 0 && (
         <div className="grid grid-cols-3 gap-3 mb-8">
           {[
-            { label: 'Sessions', val: sessions.length, icon: BookOpen, color: 'text-gray-600 bg-gray-100' },
-            { label: 'Prêtes', val: sessions.filter(s => !s.status || s.status === 'ready').length, icon: CheckCircle, color: 'text-emerald-600 bg-emerald-50' },
-            { label: 'En cours', val: sessions.filter(s => s.status === 'processing').length, icon: RefreshCw, color: 'text-amber-600 bg-amber-50' },
+            { label: 'Sessions', val: sessions.length, icon: BookOpen,     color: 'text-gray-600 bg-gray-100'    },
+            { label: 'Prêtes',   val: sessions.filter(s => !s.status || s.status === 'ready').length,      icon: CheckCircle, color: 'text-violet-600 bg-violet-50' },
+            { label: 'En cours', val: sessions.filter(s => s.status === 'processing').length, icon: RefreshCw, color: 'text-amber-600 bg-amber-50'   },
           ].map(s => (
             <div key={s.label} className="card p-4">
               <div className="flex items-center gap-3">
@@ -116,7 +116,7 @@ const Dashboard = () => {
         <select
           value={filter}
           onChange={e => setFilter(e.target.value)}
-          className="input w-auto"
+          className="h-9 px-3 text-sm bg-white border border-stone rounded-lg text-ink focus:outline-none focus:ring-2 focus:ring-accent/20 focus:border-accent transition-colors"
         >
           <option value="all">Toutes</option>
           <option value="ready">Prêtes</option>

@@ -64,18 +64,18 @@ const Header = () => {
   const { title, sub, back } = getInfo();
 
   return (
-    <header className="h-14 flex items-center px-5 bg-white border-b border-stone gap-3 shrink-0">
+    <header className="h-12 flex items-center px-5 bg-white border-b border-stone gap-3 shrink-0">
       {back && (
         <button
           onClick={() => navigate(-1)}
-          className="p-1.5 text-muted hover:text-ink rounded-lg hover:bg-faint transition-colors shrink-0"
+          className="p-1 text-muted hover:text-ink rounded-md hover:bg-faint transition-colors shrink-0"
           aria-label="Retour"
         >
-          <ChevronLeft className="h-5 w-5" />
+          <ChevronLeft className="h-4 w-4" />
         </button>
       )}
       <div className="min-w-0">
-        <p className="text-sm font-semibold text-ink truncate leading-none">{title}</p>
+        <p className="text-sm font-medium text-ink truncate leading-none">{title}</p>
         {sub && (
           <p className="text-xs text-muted truncate mt-0.5">{sub}</p>
         )}

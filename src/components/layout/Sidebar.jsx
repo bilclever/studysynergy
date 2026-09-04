@@ -84,17 +84,17 @@ const Sidebar = ({ mobile = false, onClose }) => {
   };
 
   const navLinkClass = ({ isActive }) =>
-    `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all ${
+    `flex items-center gap-3 px-3 py-2 rounded-lg text-sm transition-all ${
       isActive
-        ? 'bg-faint text-ink font-semibold'
+        ? 'bg-violet-50 text-accent font-medium'
         : 'text-muted hover:text-ink hover:bg-faint'
     }`;
 
   const toolClass = (id) => {
     const isActive = activeTool === id;
-    return `flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm w-full text-left transition-all ${
+    return `flex items-center gap-3 px-3 py-2 rounded-lg text-sm w-full text-left transition-all ${
       isActive
-        ? 'bg-faint text-ink font-semibold'
+        ? 'bg-violet-50 text-accent font-medium'
         : 'text-muted hover:text-ink hover:bg-faint'
     }`;
   };
@@ -103,9 +103,9 @@ const Sidebar = ({ mobile = false, onClose }) => {
     <div className="flex flex-col h-full">
       {/* Logo */}
       <div className="flex items-center justify-between px-4 py-4 border-b border-stone">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2">
           <Logo size="sm" />
-          <span className="font-bold text-base text-ink">StudySynergy</span>
+          <span className="font-semibold text-sm text-ink">StudySynergy</span>
         </div>
         {mobile && (
           <button onClick={onClose} className="p-1.5 text-muted hover:text-ink rounded-lg">
@@ -118,7 +118,7 @@ const Sidebar = ({ mobile = false, onClose }) => {
       <div className="flex-1 overflow-y-auto px-3 py-4 space-y-5">
         {/* Main nav */}
         <div>
-          <p className="text-[10px] font-bold text-muted uppercase tracking-widest px-3 mb-2">Navigation</p>
+          <p className="text-[10px] font-semibold text-muted/60 uppercase tracking-widest px-3 mb-1.5">Navigation</p>
           <ul className="space-y-0.5">
             {mainNav.map(item => (
               <li key={item.name}>
@@ -135,10 +135,10 @@ const Sidebar = ({ mobile = false, onClose }) => {
           </ul>
         </div>
 
-        {/* Session tools - toujours visibles */}
+        {/* Session tools */}
         <div>
-          <div className="flex items-center justify-between px-3 mb-2">
-            <p className="text-[10px] font-bold text-muted uppercase tracking-widest">Outils</p>
+          <div className="flex items-center justify-between px-3 mb-1.5">
+            <p className="text-[10px] font-semibold text-muted/60 uppercase tracking-widest">Outils</p>
             {lastSession && !isSessionPage && (
               <span className="text-[10px] text-muted truncate max-w-[80px]" title={lastSession.title}>
                 {lastSession.title?.slice(0, 12) || 'Dernière'}…
@@ -167,11 +167,11 @@ const Sidebar = ({ mobile = false, onClose }) => {
       {/* User */}
       <div className="border-t border-stone px-3 py-3">
         <div className="flex items-center gap-3 px-1">
-          <div className="h-8 w-8 bg-gray-100 text-ink rounded-xl flex items-center justify-center text-xs font-bold shrink-0">
+          <div className="h-7 w-7 bg-accent/10 text-accent rounded-lg flex items-center justify-center text-xs font-bold shrink-0">
             {user?.name?.charAt(0)?.toUpperCase() || 'U'}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-ink truncate">{user?.name || 'Utilisateur'}</p>
+            <p className="text-sm font-medium text-ink truncate">{user?.name || 'Utilisateur'}</p>
             <p className="text-xs text-muted truncate">{user?.email || ''}</p>
           </div>
           <button

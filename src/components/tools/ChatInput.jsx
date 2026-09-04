@@ -161,7 +161,7 @@ const ChatInput = ({ onSendMessage, isLoading, sessionId }) => {
           onClick={handleSend}
           disabled={!canSend}
           className={`p-1.5 rounded-lg transition-colors shrink-0 ${
-            canSend ? 'text-white bg-ink hover:bg-gray-800' : 'text-muted bg-faint cursor-not-allowed'
+            canSend ? 'text-white bg-ink hover:bg-[#1f1f1f]' : 'text-muted bg-faint cursor-not-allowed'
           }`}
         >
           {busy && isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}

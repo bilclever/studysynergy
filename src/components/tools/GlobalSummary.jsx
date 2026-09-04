@@ -33,7 +33,7 @@ const GlobalSummary = ({ content }) => {
             code: ({ inline, node, children, ...props }) =>
               inline
                 ? <code className="bg-faint text-ink px-1.5 py-0.5 rounded text-xs font-mono" {...props}>{children}</code>
-                : <code className="block bg-gray-900 text-gray-100 p-4 rounded-lg my-3 text-xs overflow-x-auto font-mono" {...props}>{children}</code>,
+                : <code className="block bg-ink text-faint p-4 rounded-lg my-3 text-xs overflow-x-auto font-mono" {...props}>{children}</code>,
             a: ({ node, children, ...props }) => <a className="text-accent underline underline-offset-2" {...props}>{children}</a>,
             strong: ({ node, children, ...props }) => <strong className="font-semibold text-ink" {...props}>{children}</strong>,
           }}

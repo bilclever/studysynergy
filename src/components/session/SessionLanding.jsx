@@ -78,7 +78,7 @@ const SessionLanding = () => {
   const session = sessionData?.data || sessionData;
 
   return (
-    <div className="min-h-screen bg-faint">
+    <div className="min-h-screen bg-white">
       <div className="max-w-3xl mx-auto px-4 py-6 pb-36">
 
         {/* Header */}
@@ -175,7 +175,7 @@ const SessionLanding = () => {
       </div>
 
       {/* Fixed chat input */}
-      <div className="fixed bottom-0 left-0 right-0 lg:left-56 bg-faint border-t border-stone py-4 px-4">
+      <div className="fixed bottom-0 left-0 right-0 lg:left-60 bg-white border-t border-stone py-4 px-4">
         <div className="max-w-3xl mx-auto">
           <ChatInput
             onSendMessage={(msg) => chatMutation.mutate(msg)}

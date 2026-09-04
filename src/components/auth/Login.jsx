@@ -43,17 +43,17 @@ const Login = () => {
     <div className="min-h-screen bg-faint flex">
 
       {/* Panneau gauche */}
-      <div className="hidden lg:flex lg:w-5/12 bg-ink flex-col justify-between p-12">
-        <div className="flex items-center gap-2.5">
+      <div className="hidden lg:flex lg:w-5/12 bg-faint border-r border-stone flex-col justify-between p-12">
+        <div className="flex items-center gap-2">
           <Logo size="sm" />
-          <span className="font-bold text-white text-base">StudySynergy</span>
+          <span className="font-semibold text-ink text-sm">StudySynergy</span>
         </div>
 
         <div>
-          <h2 className="text-3xl font-bold text-white mb-4 leading-snug">
+          <h2 className="text-3xl font-bold text-ink mb-4 leading-snug tracking-tight">
             Révisez plus vite,<br />retenez mieux.
           </h2>
-          <p className="text-gray-400 text-sm leading-relaxed mb-8">
+          <p className="text-muted text-sm leading-relaxed mb-8">
             Importez vos cours et obtenez instantanément résumés intelligents,
             quiz personnalisés et flashcards générés par Gemini AI.
           </p>
@@ -64,15 +64,15 @@ const Login = () => {
               'Flashcards pour mémoriser efficacement',
               'PDF, audio, vidéo et plus encore',
             ].map(f => (
-              <div key={f} className="flex items-center gap-3 text-sm text-gray-300">
-                <div className="h-1.5 w-1.5 rounded-full bg-gray-500 shrink-0" />
+              <div key={f} className="flex items-center gap-3 text-sm text-ink">
+                <div className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" />
                 {f}
               </div>
             ))}
           </div>
         </div>
 
-        <p className="text-xs text-gray-600">© 2024 StudySynergy</p>
+        <p className="text-xs text-muted">© 2026 StudySynergy</p>
       </div>
 
       {/* Panneau droit */}

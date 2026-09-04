@@ -14,6 +14,8 @@ import SessionLanding from './components/session/SessionLanding';
 import QuizPlayer from './components/tools/QuizPlayer';
 import FlashcardDeck from './components/tools/FlashcardDeck';
 import FilesPage from './components/tools/FilesPage';
+import ErrorBoundary from './components/ui/ErrorBoundary';
+import NotFound from './components/ui/NotFound';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -78,53 +80,55 @@ const FilesWrapper = () => {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Router>
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <Router>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
 
-            <Route path="/login" element={
-              <PublicRoute><Login /></PublicRoute>
-            } />
+              <Route path="/login" element={
+                <PublicRoute><Login /></PublicRoute>
+              } />
 
-            <Route path="/" element={
-              <PrivateRoute><Layout /></PrivateRoute>
-            }>
-              <Route path="dashboard" element={<Dashboard />} />
-              <Route path="session/new" element={<SessionSetup />} />
-              <Route path="session/:sessionId" element={<SessionLanding />} />
-              <Route path="session/:sessionId/quiz" element={<QuizPlayerWrapper />} />
-              <Route path="session/:sessionId/flashcards" element={<FlashcardWrapper />} />
-              <Route path="session/:sessionId/files" element={<FilesWrapper />} />
+              <Route path="/" element={
+                <PrivateRoute><Layout /></PrivateRoute>
+              }>
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="session/new" element={<SessionSetup />} />
+                <Route path="session/:sessionId" element={<SessionLanding />} />
+                <Route path="session/:sessionId/quiz" element={<QuizPlayerWrapper />} />
+                <Route path="session/:sessionId/flashcards" element={<FlashcardWrapper />} />
+                <Route path="session/:sessionId/files" element={<FilesWrapper />} />
 
-              {/* Routes sans sessionId → redirige vers la dernière session */}
-              <Route path="quiz" element={<LastSessionRedirect tool="quiz" />} />
-              <Route path="flashcards" element={<LastSessionRedirect tool="flashcards" />} />
-              <Route path="files" element={<LastSessionRedirect tool="files" />} />
-            </Route>
+                <Route path="quiz"       element={<LastSessionRedirect tool="quiz" />} />
+                <Route path="flashcards" element={<LastSessionRedirect tool="flashcards" />} />
+                <Route path="files"      element={<LastSessionRedirect tool="files" />} />
+              </Route>
 
-            <Route path="/app" element={<Navigate to="/dashboard" />} />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
-        </Router>
+              <Route path="/app" element={<Navigate to="/dashboard" />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Router>
 
-        <Toaster
-          position="bottom-right"
-          toastOptions={{
-            duration: 3500,
-            style: {
-              background: '#111',
-              color: '#fff',
-              borderRadius: '12px',
-              fontSize: '13px',
-              padding: '10px 14px',
-            },
-            success: { iconTheme: { primary: '#7c3aed', secondary: '#fff' } },
-          }}
-        />
-      </AuthProvider>
-    </QueryClientProvider>
+          <Toaster
+            position="bottom-right"
+            toastOptions={{
+              duration: 3500,
+              style: {
+                background: '#0a0a0a',
+                color: '#fff',
+                borderRadius: '10px',
+                fontSize: '13px',
+                padding: '10px 14px',
+                border: '1px solid rgba(255,255,255,0.08)',
+              },
+              success: { iconTheme: { primary: '#5b4cf5', secondary: '#fff' } },
+            }}
+          />
+        </AuthProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

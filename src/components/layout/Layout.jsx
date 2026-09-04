@@ -9,9 +9,9 @@ const Layout = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-faint">
+    <div className="min-h-screen bg-white">
       {/* Mobile header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-stone h-14 flex items-center px-4 gap-3">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white border-b border-stone h-12 flex items-center px-4 gap-3">
         <button
           onClick={() => setMobileOpen(true)}
           className="p-1.5 text-muted hover:text-ink rounded-lg"
@@ -20,7 +20,7 @@ const Layout = () => {
         </button>
         <div className="flex items-center gap-2">
           <Logo size="sm" />
-          <span className="font-bold text-ink">StudySynergy</span>
+          <span className="font-semibold text-sm text-ink">StudySynergy</span>
         </div>
       </div>
 
